@@ -1,51 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-// import logo from '../../logo.svg';
-import './navbar.css';
+import billbillLogo from './../../assets/billbill_logo_1.jpg';
+import "./Navbar.css";
+import { menuItems } from "./menuItems";
+import { TfiLocationPin } from "react-icons/tfi";
+import { TfiHeadphoneAlt } from "react-icons/tfi";
+
+
+
 
 const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState();
+useEffect(()=>{
+  setToggleMenu(true);
+}, [])
 
   return (
-    <div className="gpt3__navbar">
-      <div className="gpt3__navbar-links">
-        <div className="gpt3__navbar-links_logo">
-          {/* <img src={logo} /> */}
-        </div>
-        <div className="gpt3__navbar-links_container">
-          <p><a href="#home">Home</a></p>
-          <p><a href="#wgpt3">What is GPT3?</a></p>
-          <p><a href="#possibility">Open AI</a></p>
-          <p><a href="#features">Case Studies</a></p>
-          <p><a href="#blog">Library</a></p>
-        </div>
+    <div className="navbar-container">
+      <div className="navbar-logo mx-2">
+        <img src={billbillLogo} />
       </div>
-      <div className="gpt3__navbar-sign">
-        <p>Sign in</p>
-        <button type="button">Sign up</button>
+      <div className="navbar-content">
+
+        <div className="navbar-links-container">
+          {menuItems.map((item, index) => {
+            return (<p key={index}><a className="mx-2 underline-effect" href={item.tag}>{item.name}</a></p>)
+          })}
+
+          <div className="navbar-info">
+            <TfiLocationPin size={20} className="mx-1" />
+            <p>Chile 680, Buenos Aires, Argentina</p>
+            <div className='mx-1'></div>
+            <TfiHeadphoneAlt size={20} className="mx-1" />
+            <p>+54911-23914629</p>
+          </div>
+        </div>
+
       </div>
+
+
+
       <div className="gpt3__navbar-menu">
-        {toggleMenu
-          ? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
-          : <RiMenu3Line color="#fff" size={27} onClick={() => setToggleMenu(true)} />}
-        {toggleMenu && (
-        <div className="gpt3__navbar-menu_container scale-up-center">
-          <div className="gpt3__navbar-menu_container-links">
-            <p><a href="#home">Home</a></p>
-            <p><a href="#wgpt3">What is GPT3?</a></p>
-            <p><a href="#possibility">Open AI</a></p>
-            <p><a href="#features">Case Studies</a></p>
-            <p><a href="#blog">Library</a></p>
+        {!toggleMenu
+          ? <RiCloseLine color="#000" size={27} onClick={()=>setToggleMenu(true)} />
+          : <RiMenu3Line color="#000" size={27} onClick={()=>setToggleMenu(false)} />}
+        {/* {toggleMenu && ( */}
+          <div className={toggleMenu ? 'gpt3__navbar-menu_container show-menu' : 'gpt3__navbar-menu_container  hide-menu'}>
+            <div className="gpt3__navbar-menu_container-links">
+              {menuItems.map((item, index) => {
+                return (<p key={index}><a className="mx-2 underline-effect" href={item.tag}>{item.name}</a></p>)
+              })}
+            </div>
           </div>
-          <div className="gpt3__navbar-menu_container-links-sign">
-            <p>Sign in</p>
-            <button type="button">Sign up</button>
-          </div>
-        </div>
-        )}
+        {/* )} */}
       </div>
     </div>
   );
 };
 
 export default Navbar;
+

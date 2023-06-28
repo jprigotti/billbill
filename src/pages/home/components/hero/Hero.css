@@ -1,43 +1,77 @@
 .hero-container {
     width: 100%;
+    height: 300px;
     display: flex;
     flex-direction: row;
-
 }
 
 
-.hero-content {
-    background-color: #f7fafd;
+.hero-content-container {
     width: 50%;
-    height: 400px;
+    display: flex;
+    background-color: #f7fafd;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.hero-content-container p {
+    border-left: 2px solid black;
+}
+
+.hero-content-inner-container{
+
+
     align-self: center;
-    padding: 2rem;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-.hero-content p {
-    padding: 0 1rem;
-    border-left: 3px solid black;
-}
-
-.hero_image{
-
-}
-
-.hero_image img {
-    height: 500px;
-    animation-name: example;
-    animation-duration: 1s;
+    animation-name: divSlideUp;
+    animation-duration: 0.8s;
 }
 
 
-@keyframes example {
+.hero-image-container {
+    width: 50%;
+    height: 100%;
+    /* transform: perspective(1000px); */
+}
+
+.hero-image-inner-container{
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    animation-name: zoomHeroImage;
+    animation-duration: 0.8s;
+}
+
+
+
+
+@keyframes zoomHeroImage {
     from {
-
-        transform: scale(0);
+        opacity: 0;
+        transform: translateX(50px) translateY(-50px) scale(0.5);
     }
 
     to {
-
-        transform: scale(1);
+        opacity: 1;
+        transform: translateX(0) translateY(0);
     }
 }
+
+@keyframes divSlideUp {
+    from {
+        opacity: 0;
+        transform: translateX(0) translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+
+/* translateZ(200px) perspective(200px)
+translateZ(50px) perspective(200px) */
