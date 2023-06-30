@@ -1,8 +1,20 @@
-.navbar-container {
+* {
+    font-family: var(--poppins);
+    font-size: 1.1rem;
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
+    position: fixed;
+    width: 100%;
+    align-self: center;
+
+    /* background-image: linear-gradient(to bottom, rgb(255,255,255), rgba(0,0,0,0)); */
+    z-index: 10;
+
 }
 
 .navbar-content {
@@ -13,14 +25,17 @@
 }
 
 .navbar-content p {
-align-self: center;
+    align-self: center;
 }
 
 
+.navbar-logo {
+    display: flex;
+}
 
-.navbar-logo img {
-    width: 60x;
-    height: 60px;
+.navbar-logo p {
+    font-family: var(--poppins);
+    font-weight: 500;
 }
 
 .navbar-links-container {
@@ -30,41 +45,47 @@ align-self: center;
 
 .navbar-links-container a {
     text-decoration: none;
+    color: var(--heavy-black);
+    padding: 2px 5px;
+    border-radius: 50%;
 }
 
-.navbar-info{
+.navbar-links-container a:hover {
+    /* color: rgba(255,255,255,0.8); */
+}
+
+.navbar-info {
     display: flex;
     align-items: center;
 }
 
-.navbar-info p{
+.navbar-info p {
     font-size: 10px;
 }
 
 .underline-effect {
     position: relative;
     display: inline-block;
-    text-decoration: none;
-    color: #000;
-  }
-  
-  .underline-effect::after {
+    color: var(--heavy-black);
+}
+
+.underline-effect::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: -2px;
     width: 100%;
-    height: 1px;
-    background-color: #000;
+    height: 2px;
+    background-color: var(--jungle-green);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
-  }
-  
-  .underline-effect:hover::after {
+}
+
+.underline-effect:hover::after {
     transform: scaleX(1);
     transform-origin: left;
-  }
+}
 
 
 
@@ -120,23 +141,23 @@ align-self: center;
     align-items: flex-end;
     flex-direction: column;
     text-align: end;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.8);
     padding: 2rem;
     position: absolute;
     right: 0;
     top: 60px !important;
-     min-width: 210px;
+    min-width: 210px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 
 
 }
 
-.show-menu{
+.show-menu {
     transform: translateX(300px);
     transition: 0.5s
 }
 
-.hide-menu{
+.hide-menu {
     transform: translateX(0);
     transition: 0.5s
 }

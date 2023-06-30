@@ -1,31 +1,21 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;  
-  }
-
-  .outer-container{
-    width: 100vw;
-    min-height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.main-container {
-  width: 70%;
-  margin: 0 auto;
-  max-width: 1320;
-  overflow: visible;
+.outer-container {
+  width: 100vw;
 }
 
 
-@media screen and (max-width: 1200px) {
-
-}
+@media screen and (max-width: 1200px) {}
 
 @media screen and (max-width: 992px) {
   .main-container {
     width: 80%;
   }
-  }
+}
 
 
 
