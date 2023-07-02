@@ -9,11 +9,11 @@ import "../../utils/global.css"
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(true);
-  const [alpha, setAlpha] = useState(0);
+  const [alpha, setAlpha] = useState(0.3);
   const [logoSize, setLogoSize] = useState(60);
   var calcLogoSize = 0;
   var calcAlpha = 0;
-  const SCROLL_BREAK = 300;
+  const SCROLL_BREAK = 1000;
   const LOGO_SIZE = 80;
   const BILL_SIZE = 20;
   // useEffect(() => {
@@ -26,7 +26,7 @@ const Navbar = () => {
 
       const handleScroll = () => {
         calcAlpha = window.scrollY;
-        calcAlpha = calcAlpha / SCROLL_BREAK;
+        calcAlpha = 0.5 + calcAlpha / SCROLL_BREAK;
         setAlpha(calcAlpha > 1 ? 1 : calcAlpha);
 
         calcLogoSize = 1 - (window.scrollY / SCROLL_BREAK);
@@ -44,7 +44,7 @@ const Navbar = () => {
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, ${alpha}), rgba(255,255,255, ${alpha}))`
       }}>
-      <div className="main-container">
+      <div className="main-container navbar-container">
         <div className="navbar-logo mx-2">
           <img
             style={{

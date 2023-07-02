@@ -17,6 +17,13 @@
 
 }
 
+.navbar-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .navbar-content {
     flex: 1;
     display: flex;

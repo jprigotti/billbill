@@ -1,5 +1,5 @@
 import React from 'react'
-import heroImage from "../../../../assets/images/hero/instagram_image_5.jpg";
+import heroImage from "../../../../assets/images/hostel_image_1.jpg";
 import "./Hero1.css"
 import "../../../../utils/global.css"
 

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 
 
 :root {
@@ -30,17 +32,28 @@
 
     /* Fonst*/
     --poppins: 'Poppins', sans-serif;
+    --indieFlower: 'Indie Flower', cursive;
 
 }
 
 .main-container {
-    width: 80%;
+    width: 80% !important;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
 }
 
+@media screen and (max-width: 1050px) {}
 
+@media screen and (max-width: 700px) {
+    .main-container {
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .main-container {
+        width: 95% !important;
+    }
+}
 
 .mx-1 {
     margin: 0 1rem;
